@@ -1,3 +1,8 @@
+:root {
+    --padding-nav: 10px;
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +19,13 @@ body {
 
 nav {
     background-color: steelblue;
-    padding: 10px;
+    padding: var(--padding-nav);
 }
 
 nav a {
     color: white;
     display: block;
-    padding: 10px;
+    padding: var(--padding-nav);
 }
 
 h1 {
