@@ -1,6 +1,8 @@
 :root {
     --cor-primaria: #055a05;
     /* verde-floresta */
+    --cor-secundaria: #f4a261;
+    /* bege médio */
     --cor-destaque1: #264653;
     /* azul-escuro acinzentado */
     --fonte-titulo: "Times New Roman", "Georgia", serif;
@@ -63,9 +65,10 @@ footer a {
     width: 100%;
     padding: 16px;
     text-align: center;
-    opacity: 0.7;
-    background-color: var(--cor-destaque1);
+    background-color: rgba(38, 70, 83, 0.85);
     color: #fff;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 .hero article {
@@ -81,4 +84,8 @@ footer a {
 .hero article img {
     float: right;
     width: 125px;
+    margin-left: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+
 }
