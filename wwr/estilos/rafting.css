@@ -18,13 +18,63 @@
 body {
     font-family: var(--fonte-body);
     color: var(--cor-destaque1);
+    line-height: 1.5;
 }
 
 header,
 main,
 footer {
     width: 840px;
+    max-width: 100%;
     margin: 0 auto;
+}
+
+/* Cabeçalho em CSS Grid: logotipo + barra de navegação */
+header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    background-color: azure;
+}
+
+header img {
+    width: 110px;
+    height: auto;
+    display: block;
+}
+
+/* Barra de navegação em CSS Flex */
+header nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: aquamarine;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+header nav ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--cor-destaque1);
+    font-weight: bold;
+    padding: 4px 8px;
+}
+
+header nav a:hover {
+    color: var(--cor-primaria);
 }
 
 h1,
@@ -32,43 +82,103 @@ h2 {
     font-family: var(--fonte-titulo);
     color: var(--cor-primaria);
     text-align: center;
+    margin-bottom: 12px;
 
 }
 
-nav,
-p,
-section,
-article {
-    margin: 16px;
-    padding: 8px;
+section {
+    margin: 24px 16px;
+    padding: 16px;
+    background-color: var(--cor-secundaria);
+    border-radius: 6px;
 }
 
-.redes-sociais a,
-.socialmedia a,
-footer a {
-    text-decoration: none;
+section p {
+    margin-bottom: 12px;
 }
 
-.hero {
-    position: relative;
+section p:last-child {
+    margin-bottom: 0;
 }
 
-.hero img {
-    display: block;
+/* Secção História: título no topo + 3 colunas (parágrafo, imagem, parágrafo) */
+.historia {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    align-items: center;
+}
+
+.historia h2 {
+    grid-column: 1 / -1;
+}
+
+.historia img {
     width: 100%;
     height: auto;
+    display: block;
+    border-radius: 4px;
+}
+
+/* Secção "A aventura está te esperando!": 5 imagens lado a lado com legenda */
+.aventuras {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.aventuras h2 {
+    grid-column: 1 / -1;
+}
+
+.aventuras figure {
+    margin: 0;
+}
+
+.aventuras img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+}
+
+.aventuras figcaption {
+    margin-top: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--cor-destaque1);
+}
+
+/* Seção principal (Hero) */
+.hero {
+    position: relative;
+    margin: 16px 0 24px;
+}
+
+.hero > img {
+    display: block;
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
 }
 
 .hero h1 {
     position: absolute;
     top: 20px;
-    width: 100%;
-    padding: 16px;
+    left: 20px;
+    right: 20px;
+    margin: 0;
+    padding: 12px 16px;
     text-align: center;
     background-color: rgba(38, 70, 83, 0.85);
-    color: #fff;
+    color: #ffffff;
     font-size: 2rem;
     letter-spacing: 1px;
+    border-radius: 6px;
+    z-index: 2;
 }
 
 .hero article {
@@ -76,16 +186,64 @@ footer a {
     bottom: 20px;
     left: 20px;
     right: 20px;
-    background-color: var(--cor-secundaria);
-    opacity: 0.9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    background-color: rgba(248, 249, 250, 0.92);
     padding: 16px;
+    border-radius: 6px;
+}
+
+.hero article p {
+    margin-bottom: 0;
 }
 
 .hero article img {
-    float: right;
     width: 125px;
-    margin-left: 16px;
+    height: 90px;
+    object-fit: cover;
+    flex-shrink: 0;
     border: 2px solid #ffffff;
     border-radius: 4px;
+}
 
+/* Rodapé e redes sociais */
+footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background-color: azure;
+    color: var(--cor-destaque1);
+
+}
+
+footer nav.redes-sociais {
+    grid-row: 1;
+    grid-column: 2;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.redes-sociais a,
+footer a {
+    text-decoration: none;
+}
+
+.redes-sociais img {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+
+footer p {
+    grid-row: 2;
+    grid-column: 1;
+    justify-self: start;
+    margin: 0;
 }
